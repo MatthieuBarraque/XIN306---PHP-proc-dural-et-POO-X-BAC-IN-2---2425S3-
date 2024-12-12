@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="about-container">
+    <div class="about-header">
+        <h1><i class="fas fa-book"></i> GUESTBOOK</h1>
+        <p><i class="fas fa-user"></i>Matthieu BARRAQUE</p>
+    </div>
+    <div class="about-content">
+        <h2><i class="fas fa-info-circle"></i> À propos du projet</h2>
+        <p>
+            Ce projet consiste à développer un livre d'or interactif, permettant aux utilisateurs de laisser et consulter des messages dans un environnement sécurisé et personnalisé.
+        </p>
+
+        <h3><i class="fas fa-lightbulb"></i> Objectifs pédagogiques :</h3>
+        <ul>
+            <li><i class="fas fa-check"></i> Comprendre et appliquer les concepts de base de PHP procédural.</li>
+            <li><i class="fas fa-check"></i> Utiliser PDO pour interagir avec une base de données MySQL de manière sécurisée.</li>
+            <li><i class="fas fa-check"></i> Gérer la création de comptes utilisateurs avec validation et sécurisation des mots de passe.</li>
+            <li><i class="fas fa-check"></i> Mettre en œuvre un système de connexion et de déconnexion.</li>
+            <li><i class="fas fa-check"></i> Utiliser des sessions PHP pour maintenir l'état de connexion des utilisateurs.</li>
+            <li><i class="fas fa-check"></i> Valider et traiter les données soumises via des formulaires.</li>
+            <li><i class="fas fa-check"></i> Afficher et gérer les messages laissés par les utilisateurs de manière ordonnée.</li>
+        </ul>
+
+        <h3><i class="fas fa-cogs"></i> Fonctionnalités principales :</h3>
+        <ul>
+            <li><i class="fas fa-user-plus"></i> <strong>Inscription des utilisateurs :</strong> Création de comptes sécurisés avec hachage des mots de passe.</li>
+            <li><i class="fas fa-sign-in-alt"></i> <strong>Connexion des utilisateurs :</strong> Authentification avec sessions sécurisées.</li>
+            <li><i class="fas fa-edit"></i> <strong>Soumission des messages :</strong> Formulaire sécurisé pour laisser des messages.</li>
+            <li><i class="fas fa-list"></i> <strong>Affichage des messages :</strong> Liste des messages avec tri chronologique.</li>
+            <li><i class="fas fa-sign-out-alt"></i> <strong>Déconnexion des utilisateurs :</strong> Fin de session sécurisée.</li>
+        </ul>
+
+        <h3><i class="fas fa-plus-circle"></i> Fonctionnalités supplémentaires (facultatives) :</h3>
+        <ul>
+            <li><i class="fas fa-unlock-alt"></i> Mot de passe oublié : Réinitialisation sécurisée des mots de passe.</li>
+            <li><i class="fas fa-tools"></i> Édition et suppression des messages : Gestion des droits par utilisateur.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

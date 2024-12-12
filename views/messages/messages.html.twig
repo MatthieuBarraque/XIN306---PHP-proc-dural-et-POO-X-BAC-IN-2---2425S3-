@@ -1,0 +1,89 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="messages-container">
+    <div class="messages-header">
+        <h1>GUESTBOOK</h1>
+        <p>Laissez un message pour les autres visiteurs</p>
+    </div>
+
+    {% if error %}
+        <div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i> {{ error }}
+        </div>
+    {% endif %}
+
+    {% if success %}
+        <div class="success-message">
+            <i class="fas fa-check-circle"></i> {{ success }}
+        </div>
+    {% endif %}
+
+    <div class="messages-list">
+        {% for message in messages %}
+            <div class="message-item">
+                <div class="message-header">
+                    <span class="message-author"><i class="fas fa-user"></i> {{ message.username }}</span>
+                    <span class="message-date"><i class="fas fa-clock"></i> {{ message.created_at|date("d/m/Y H:i") }}</span>
+                </div>
+                <div class="message-content" id="content-{{ message.id }}">{{ message.content }}</div>
+
+                {% if app_user and app_user.id == message.user_id %}
+                    <div class="message-actions">
+                        <button class="btn-edit" onclick="toggleEditForm({{ message.id }})">
+                            <i class="fas fa-edit"></i> Modifier
+                        </button>
+                        <form action="{{ path('messages') }}" method="post" style="display:inline;">
+                            <input type="hidden" name="message_id" value="{{ message.id }}">
+                            <input type="hidden" name="action" value="delete">
+                            <button type="submit" class="btn-delete">
+                                <i class="fas fa-trash-alt"></i> Supprimer
+                            </button>
+                        </form>
+                    </div>
+                    <div class="edit-form" id="edit-form-{{ message.id }}" style="display: none;">
+                        <form action="{{ path('messages') }}" method="post" class="edit-message-form">
+                            <div class="form-group">
+                                <textarea name="message" required>{{ message.content }}</textarea>
+                            </div>
+                            <input type="hidden" name="message_id" value="{{ message.id }}">
+                            <input type="hidden" name="action" value="edit">
+                            <button type="submit" class="btn-save">
+                                <i class="fas fa-save"></i> Enregistrer
+                            </button>
+                            <button type="button" class="btn-cancel" onclick="toggleEditForm({{ message.id }})">
+                                <i class="fas fa-times"></i> Annuler
+                            </button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+        {% else %}
+            <p>Aucun message pour l'instant. Soyez le premier à écrire !</p>
+        {% endfor %}
+    </div>
+
+    <form action="{{ path('messages') }}" method="post" class="message-form">
+        <div class="form-group">
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message" placeholder="Rentrez votre Note" required></textarea>
+        </div>
+        <input type="hidden" name="action" value="add">
+        <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Envoyer</button>
+    </form>
+</div>
+
+<script>
+    function toggleEditForm(messageId) {
+        const editForm = document.getElementById('edit-form-' + messageId);
+        const messageContent = document.getElementById('content-' + messageId);
+        if (editForm.style.display === 'none') {
+            editForm.style.display = 'block';
+            messageContent.style.display = 'none';
+        } else {
+            editForm.style.display = 'none';
+            messageContent.style.display = 'block';
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <style>
+        body {
+            background: url('https://i.pinimg.com/originals/b3/08/cb/b308cb0e0a2aa826dbaefcf1edaf634c.gif') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .error-container h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .error-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+    </style>
+
+    <div class="error-container">
+        <i class="fas fa-exclamation-triangle error-icon"></i>
+        <h1>404 - Page non trouvée</h1>
+        <a href="{{ path('home') }}">Retour à l'accueil</a>
+    </div>
+{% endblock %}

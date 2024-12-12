@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+{% if temp_message %}
+<div class="temp-message">
+    <i class="fas fa-info-circle"></i> {{ temp_message }}
+</div>
+{% endif %}
+
+<div class="profile-container">
+    <div class="profile-box">
+        <div class="profile-header">
+            <div class="profile-picture">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h1>Bienvenue, {{ username }} !</h1>
+            <p>Voici votre profil. Vous êtes maintenant connecté.</p>
+        </div>
+
+        <div class="profile-info">
+            <h2>Informations :</h2>
+            <ul>
+                <li><i class="fas fa-user"></i> <strong>Nom d'utilisateur :</strong> {{ username }}</li>
+                <li><i class="fas fa-envelope"></i> <strong>Email :</strong> {{ email }}</li>
+            </ul>
+        </div>
+
+        <div class="profile-actions">
+            <a href="{{ path('logout') }}" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Se déconnecter
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

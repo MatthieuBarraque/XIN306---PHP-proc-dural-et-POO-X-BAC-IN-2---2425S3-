@@ -1,0 +1,25 @@
+<nav class="navbar">
+    <div class="navbar-left">
+        <a href="{{ path('home') }}" class="navbar-logo">
+            <i class="fas fa-book"></i> GUESTBOOK
+        </a>
+    </div>
+    <div class="navbar-center">
+        <ul>
+            <li><a href="{{ path('home') }}"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="{{ path('messages') }}"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li><a href="{{ path('about') }}"><i class="fas fa-info-circle"></i> À propos</a></li>
+        </ul>
+    </div>
+    <div class="navbar-right">
+        <ul>
+            {% if app_user %}
+                <li><a href="{{ path('profile') }}"><i class="fas fa-user"></i> Profil</a></li>
+                <li><a href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+            {% else %}
+                <li><a href="{{ path('register') }}"><i class="fas fa-user-plus"></i> Inscription</a></li>
+                <li><a href="{{ path('login') }}"><i class="fas fa-sign-in-alt"></i> Connexion</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
