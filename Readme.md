@@ -92,8 +92,8 @@ L’arborescence du projet est similaire à ceci :
 Si vous n’avez pas déjà le code source, clonez le dépôt Git :
 
 ```bash
-git clone https://github.com/votre_utilisateur/votre_projet.git
-cd votre_projet
+git clone git@github.com:MatthieuBarraque/XIN306-PHP-proc-dural-et-POO-X-BAC-IN-2-2425S3.git
+cd XIN306-PHP-proc-dural-et-POO-X-BAC-IN-2-2425S3
 ```
 
 *(Remplacez l’URL par celle de votre dépôt.)*
@@ -138,8 +138,8 @@ Si vous avez un script SQL d’initialisation (par exemple `docker-init/init.sql
 Si ce n’est pas automatique, connectez-vous au conteneur db et exécutez manuellement le script :
 
 ```bash
-docker exec -it votre_projet_db_1 bash
-mysql -u root -p$DB_PASSWORD $DB_NAME < /path/to/init.sql
+docker exec -it guestbook bash
+mysql -u root -p$DB_PASSWORD $DB_NAME < /docker-init/init.sql
 ```
 
 *(Adaptez le nom du conteneur et le chemin vers `init.sql`.)*
